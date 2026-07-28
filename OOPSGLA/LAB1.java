@@ -1,10 +1,9 @@
-package DSAGLA;
+package OOPSGLA;
 
 import java.util.Scanner;
 
-public class NCL2 {
-    public static void main(String[] args) {
-
+public class LAB1 {
+    public static void main() {
         // swap two numbers,
         // area of rectangle,
         // area of triangle
@@ -48,7 +47,5 @@ public class NCL2 {
         {
             System.out.println("ODD");
         }
-
-
     }
 }

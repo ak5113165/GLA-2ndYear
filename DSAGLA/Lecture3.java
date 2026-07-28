@@ -1,6 +1,6 @@
 package DSAGLA;
 
-public class Day3 {
+public class Lecture3 {
 
     static void reverse(int[]arr,int l,int r)
     {

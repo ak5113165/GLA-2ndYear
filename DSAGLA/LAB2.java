@@ -1,6 +1,6 @@
 package DSAGLA;
 import java.util.Scanner;
-public class NCL1 {
+public class LAB2 {
 
     public static void main(String[] args) {
 
