@@ -138,6 +138,64 @@ public class linkedlist {
         }
         return true;
     }
+    static Node reverse(Node head)
+    {
+        Node curr=head;
+        Node prev=null;
+        Node next=null;
+
+        while (curr!=null)
+        {
+            next=curr.next;
+            curr.next=prev;
+            prev=curr;
+            curr=next;
+        }
+        return prev;
+    }
+    static boolean ispal(Node head)
+    {
+        Node temp=head;
+        Node rev=reverse(head);
+
+        while(temp!=null)
+        {
+            if(temp.data!=rev.data)
+            {
+                return false;
+            }
+            temp=temp.next;
+            rev=rev.next;
+        }
+        return true;
+    }
+    static boolean hascycle(Node head)
+    {
+        Node slow=head;
+        Node fast=head;
+
+        while (fast!=null && fast.next!=null)
+        {
+            slow=slow.next;
+            fast=fast.next.next;
+            if (slow==fast)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+    static Node MiddleNode(Node head)
+    {
+        Node slow=head;
+        Node fast=head;
+        while(fast!=null && fast.next!=null)
+        {
+            slow=slow.next;
+            fast=fast.next.next;
+        }
+        return slow;
+    }
 
     public static void main(String[] args) {
         Node head = new Node(0);
@@ -147,7 +205,13 @@ public class linkedlist {
         head = insertAtLast(head, 3);
         head=Insertbetween(head,3,4);
 //        head=deleteatend(head);
-        System.out.println(identical(head,head));
+//        System.out.println(identical(head,head));
         printlist(head);
+
+        head=reverse(head);
+        System.out.println("Reversed list");
+        printlist(head);
+
+//        System.out.println(ispal(head));
     }
 }

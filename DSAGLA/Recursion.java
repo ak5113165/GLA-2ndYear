@@ -246,6 +246,65 @@ public class Recursion {
             return Binarysearch(arr,mid+1,high,target);
         }
     }
+    // implement merge sort
+    static void mergetwosortedarray(int low,int mid,int high,int []arr)
+    {
+        int n1=mid-low;
+        int n2=high-mid+1;
+        int []left=new int[n1];
+        int []right=new int[n2];
+
+        for(int i=0;i<n1;i++)
+        {
+            left[i]=arr[low+i];
+        }
+        for(int i=0;i<n2;i++)
+        {
+            right[i]=arr[mid+1+i];
+        }
+
+        int i=0;int j=0;
+        int k=low;
+        while (i<n1 && j<n2)
+        {
+            if(left[i]<=right[j])
+            {
+                arr[k]=left[i];
+                k++;
+                i++;
+            }
+            else
+            {
+                arr[k]=right[j];
+                j++;
+                k++;
+            }
+        }
+
+        while(i<n1)
+        {
+            arr[k]=left[i];
+            i++;
+            k++;
+        }
+        while (j<n2)
+        {
+            arr[k]=right[j];
+            j++;
+            k++;
+        }
+    }
+    static void mergersort(int low,int high,int []arr)
+    {
+        if(low>high)
+        {
+            return;
+        }
+        int mid=(low+high)/2;
+        mergersort(low,mid,arr);
+        mergersort(mid+1,high,arr);
+        mergetwosortedarray(low,mid,high,arr);
+    }
     public static void main(String[] args) {
 
         print(99);
